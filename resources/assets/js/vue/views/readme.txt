@@ -1,0 +1,1 @@
+Vue.js Views (templates) can be stored in this folder.

@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "vue": "^0.12.16",
+    "vue-resource": "^0.1.16"
+  },
+  "dependencies": {
+    "laravel-elixir": "^3.0.0"
+  }
+}
