@@ -5,3 +5,8 @@ Homestead.json
 .env
 .idea/
 _ide_helper.php
+/storage/database.sqlite
+/public/build
+/public/css
+/public/js
+/public/fonts

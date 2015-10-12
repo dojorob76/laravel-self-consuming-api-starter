@@ -20,8 +20,10 @@
     <body id="app"><!--This ID corresponds to the main Vue.js File (resources/assets/js/vue/app.js)-->
 
         <div class="container-fluid">
-            <!-- Load Page Content -->
+            <!-- Load Blade Page Content -->
             @yield('content')
+            <!-- Load Vue Page Content -->
+            <component is="@{{ currentView }}"></component>
         </div>
 
         <!-- Vue Core Script -->

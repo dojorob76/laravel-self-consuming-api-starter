@@ -1,16 +1,28 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
+});
+
+$api = app('Dingo\Api\Routing\Router');
+
+// Dingo generated router for Version 1 of the MMh API
+$api->version('v1', function($api){
+
+    // Set the namespace for the API_v1-specific routes
+    $api->group(['namespace' => 'App\Api\Controllers', 'middleware' => 'cors'], function($api){
+
+        // Routes that do NOT require authentication
+        $api->post('login', ['as' => 'login.post', 'uses' => 'AuthenticationController@login']);
+        $api->post('register', ['as' => 'register.post', 'uses' => 'AuthenticationController@register']);
+
+    });
+
+});
+
+Route::get('/test', function(){
+    $test = ['test' => 'testing'];
+
+    return response()->json(['test' => 'testing']);
 });
