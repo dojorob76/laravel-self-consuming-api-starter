@@ -16,6 +16,7 @@ A boilerplate Vue file and app.blade.php file are included for convenience.
 * Dingo API https://github.com/dingo/api
 * JWT Auth https://github.com/tymondesigns/jwt-auth
 * CORS https://github.com/barryvdh/laravel-cors
+* JS-Cookie https://github.com/js-cookie/js-cookie/tree/v2.0.3#readme
 * IDE Helper https://github.com/barryvdh/laravel-ide-helper
 * Doctrine/Dbal https://github.com/doctrine/dbal
 * jQuery https://github.com/jquery/jquery

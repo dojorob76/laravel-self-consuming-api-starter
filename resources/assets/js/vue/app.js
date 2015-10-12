@@ -1,9 +1,11 @@
 var Vue = require('vue');
 Vue.use(require('vue-resource'));
 
+var rootApiPath = 'SET-YOUR-ROOT-API-PATH-HERE'; //ex. 'http://api.app-name.com'
+var appDomain = 'SET-YOUR-APP-DOMAIN-HERE'; //ex. '.app-name.com'
+
 var jsCookie = require('js-cookie');
-//jsCookie.defaults = {domain: 'CONFIGURE-DEFAULT-DOMAIN-HERE'}; //ex. '.domain-name.com'
-jsCookie.defaults = {domain: '.mmh.app'};
+jsCookie.defaults = {domain: appDomain};
 
 Vue.http.headers.common['Authorization'] = 'Bearer ' + jsCookie.get('jwt');
 
@@ -11,13 +13,22 @@ new Vue({
     el: '#app',
 
     data: {
-        //rootApiPath: 'CONFIGURE ROOT API PATH HERE', //ex. 'http://api.domain-name.com'
-        rootApiPath: 'http://api.mmh.app',
-        jwtManager: require('./custom/jwt-manager.js'),
+        rootApiPath: rootApiPath,
         currentView: 'login-view'
     },
 
     components: {
         'login-view': require('./views/authorization/login')
+    },
+
+    methods: {
+        updateJwt: function(jwtoken){
+            if(jwtoken != null && jwtoken != 'undefined'){
+                jsCookie.set('jwt', jwtoken);
+            }
+            else{
+                jsCookie.remove('jwt', jwtoken);
+            }
+        }
     }
 });
