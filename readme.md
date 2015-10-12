@@ -1,7 +1,7 @@
 ### Laravel Starter App
 
 This is a simple starter app for Laravel 5.1 incorporating Vue.js, JWT Tokens, Dingo API, and CORS. Front end packages
-include Bootstrap SASS, jQuery UI (with Bootstrap theme), Select2 (with Bootstrap theme), and FontAwesome.
+include Bootstrap SASS, Select2 (with Bootstrap theme), and FontAwesome.
 
 To install: Clone this repo (https://github.com/dojorob76/laravel-restful-starter-app.git) into your project
 directory, then run 'composer install', 'npm install', 'bower install', and 'gulp'. Note: Composer and NPM must
@@ -20,10 +20,8 @@ A boilerplate Vue file and app.blade.php file are included for convenience.
 * Doctrine/Dbal https://github.com/doctrine/dbal
 * jQuery https://github.com/jquery/jquery
 * Bootstrap SASS https://github.com/twbs/bootstrap-sass
-* jQuery UI https://github.com/jquery/jquery-ui
 * Select2 https://select2.github.io/
 * Font Awesome https://fortawesome.github.io/Font-Awesome/
-* jQuery UI Bootstrap theme http://gustavohenke.github.io/jquery-ui-bootstrap/
 * Select2 Bootstrap styles https://fk.github.io/select2-bootstrap-css/
 
 Follow the links above for more information on incorporating these packages in your own Laravel apps. No

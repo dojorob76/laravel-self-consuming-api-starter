@@ -5,14 +5,13 @@
   "authors": [
     "Donna Robinson <donna@moviemeetinghouse.com>"
   ],
-  "description": "Front end dependencies for the Laravel Starter App with Vue, JWT, and Dingo. Includes Bootstrap SASS, jQuery UI, Font Awesome, and Select2.",
+  "description": "Front end dependencies for the Laravel Starter App with Vue, JWT, and Dingo. Includes Bootstrap SASS, Font Awesome, and Select2.",
   "main": "vendor/bower_components",
   "moduleType": [],
   "keywords": [
     "Laravel5",
     "Bootstrap3",
-    "Select2",
-    "jQueryUI"
+    "Select2"
   ],
   "license": "MIT",
   "ignore": [
@@ -25,10 +24,11 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "bootstrap-sass": "~3.3.5",
-    "jquery-ui": "~1.11.4",
     "select2": "~4.0.0",
     "select2-bootstrap-css": "select2-bootstrap3-css#~1.4.6",
-    "jquery-ui-bootstrap": "~0.2.5",
     "font-awesome": "fontawesome#~4.4.0"
+  },
+  "resolutions": {
+    "select2": "~4.0.0"
   }
 }

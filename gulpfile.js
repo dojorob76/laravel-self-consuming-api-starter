@@ -10,12 +10,9 @@ elixir(function(mix) {
 
         .copy(paths.bs + 'fonts/bootstrap/**', 'public/fonts')
         .copy(paths.bower + 'font-awesome/fonts/**', 'public/fonts')
-        .copy(paths.bower + 'jquery-ui-bootstrap/images/**', 'public/images/jqueryui')
 
         .styles([
             paths.bower + 'font-awesome/css/font-awesome.css',
-            paths.bower + 'jquery-ui-bootstrap/jquery.ui.theme.css',
-            paths.bower + 'jquery-ui-bootstrap/jquery.ui.theme.font-awesome.css',
             paths.bower + 'select2/dist/css/select2.css',
             paths.bower + 'select2-bootstrap-css/select2-bootstrap.css',
             './public/css/app.css'
@@ -23,7 +20,6 @@ elixir(function(mix) {
 
         .scripts([
             paths.bower + 'jquery/dist/jquery.js',
-            paths.bower + 'jquery-ui/jquery-ui.js',
             paths.bower + 'select2/dist/js/select2.full.js',
             paths.bs + 'javascripts/bootstrap.js',
         ])
