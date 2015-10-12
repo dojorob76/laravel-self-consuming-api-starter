@@ -44,7 +44,7 @@ class AuthenticationController extends Controller
             $return_to = $request->session()->previousUrl();
 
             // All is well. Let's return the token!
-            return response()->json(['jwttoken' => $token, 'referredby' => $return_to])->header('Authorization',
+            return response()->json(['jwtoken' => $token, 'referredby' => $return_to])->header('Authorization',
                 'Bearer ' . $token)->withCookie(cookie('jwt', $token));
         }
 

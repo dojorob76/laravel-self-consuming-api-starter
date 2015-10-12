@@ -20,6 +20,7 @@ module.exports = {
             this.$http.post( this.rootApiPath + '/login', this.credentials)
                 .success(function(data){
                     console.log(data);
+                    this.jwtManager.updateJwt(data.jwtoken);
                 })
                 .error(function(data){
                     console.log(data)
