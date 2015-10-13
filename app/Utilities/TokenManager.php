@@ -44,28 +44,6 @@ class TokenManager
     }
 
     /**
-     * Get the encrypted JWT xsrfToken and the JWT user's token key for comparison.
-     *
-     * @param $token (JWT token)
-     * @return array (user token key and jwt xsrfToken key)
-     */
-    private function getKeysForComparison($token)
-    {
-        // Get the JWT token payload
-        $payload = $this->auth->getPayload($token);
-
-        // Get the encrypted token key from the JWT payload if it exists
-        $jwt_key = ($payload['xsrfToken'] ? $payload['xsrfToken'] : null);
-
-        // Get the current CSRF token
-        $csrf_key = csrf_token();
-
-        $keys = ['jwt_key' => $jwt_key, 'csrf_key' => $csrf_key];
-
-        return $keys;
-    }
-
-    /**
      * @param $token (JWT token)
      * @return bool|null (match = true, mismatch = false, null if either key is not available)
      */
@@ -92,11 +70,13 @@ class TokenManager
     }
 
     /**
-     * Reset the User's Token Key so that it corresponds with the current CSRF token
+     * Reset the User's token key so that it corresponds with the current CSRF token
      *
      * @param $user User
+     * @param $request \Illuminate\Http\Request
      */
-    public function resetUserTokenKey($user, $request){
+    public function resetUserTokenKey($user, $request)
+    {
         // Get the current CSRF Token returned from the log in form
         $token_key = $request->token_key;
 
@@ -106,21 +86,24 @@ class TokenManager
     }
 
     /**
-     * Set random Token Key for a User, which will be compared with JWT custom claims for security.
-     * TODO: This function has been deprecated. Consider removal.
+     * Get the encrypted JWT xsrfToken and the JWT user's token key for comparison.
      *
-     * @return string
+     * @param $token (JWT token)
+     * @return array (user token key and jwt xsrfToken key)
      */
-    public function setRandomTokenKey()
+    private function getKeysForComparison($token)
     {
-        $length = rand(17, 43);
-        $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $key = '';
-        $max = mb_strlen($keyspace, '8bit') - 1;
-        for ($i = 0; $i < $length; ++ $i) {
-            $key .= $keyspace[rand(0, $max)];
-        }
+        // Get the JWT token payload
+        $payload = $this->auth->getPayload($token);
 
-        return $key;
+        // Get the encrypted token key from the JWT payload if it exists
+        $jwt_key = ($payload['xsrfToken'] ? $payload['xsrfToken'] : null);
+
+        // Get the current CSRF token
+        $csrf_key = csrf_token();
+
+        $keys = ['jwt_key' => $jwt_key, 'csrf_key' => $csrf_key];
+
+        return $keys;
     }
 }
