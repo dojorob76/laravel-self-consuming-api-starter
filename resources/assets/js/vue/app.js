@@ -1,8 +1,10 @@
 var Vue = require('vue');
 Vue.use(require('vue-resource'));
 
-var rootApiPath = 'SET-YOUR-ROOT-API-PATH-HERE'; //ex. 'http://api.app-name.com'
-var appDomain = 'SET-YOUR-APP-DOMAIN-HERE'; //ex. '.app-name.com'
+//var rootApiPath = 'SET-YOUR-ROOT-API-PATH-HERE'; //ex. 'http://api.app-name.com'
+//var appDomain = 'SET-YOUR-APP-DOMAIN-HERE'; //ex. '.app-name.com'
+var rootApiPath = 'http://api.mmh.app';
+var appDomain = '.mmh.app';
 
 var jsCookie = require('js-cookie');
 jsCookie.defaults = {domain: appDomain};

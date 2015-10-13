@@ -22,8 +22,6 @@
         <div class="container-fluid">
             <!-- Load Blade Page Content -->
             @yield('content')
-            <!-- Load Vue Page Content -->
-            <component is="@{{ currentView }}"></component>
         </div>
 
         <!-- Vue Core Script -->

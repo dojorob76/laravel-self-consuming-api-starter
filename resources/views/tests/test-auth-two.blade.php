@@ -1,4 +1,4 @@
-@extends('app')
+@extends('webapp')
 
 @section('content')
     <p class="text-center">

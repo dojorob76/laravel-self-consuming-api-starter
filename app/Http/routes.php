@@ -28,6 +28,16 @@ Route::get('/', function () {
     return view('main');
 });
 
+Route::get('test', function(){
+//    $token = Request::cookie('jwt');
+//    $jwt = JWTAuth::getPayload($token);
+    $users = \App\User::all();
+
+    return $users;
+});
+
+Route::get('register', 'AuthenticationController@register');
+
 Route::group(['middleware' => 'token.auth'], function(){
     Route::get('/test-auth-two', ['as' => 'test-two.get', 'uses' => function(){
         return view('tests.test-auth-two');
