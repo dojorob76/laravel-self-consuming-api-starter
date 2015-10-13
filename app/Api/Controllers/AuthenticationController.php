@@ -42,9 +42,13 @@ class AuthenticationController extends Controller
 
         // Attempt to log the user in with Laravel Auth
         if($this->auth->attempt($credentials, $request->has( 'remember' ))){
+            $user = Auth::user();
+
+            // Reset the User's token key so that it corresponds with the current CSRF token
+            $this->tokenManager->resetUserTokenKey($user, $request);
 
             // Attempt to set a JWT Token on the User (will return JSON errors if unsuccessful)
-            $token = $this->tokenManager->getJwtTokenFromUser(Auth::user());
+            $token = $this->tokenManager->getJwtTokenFromUser($user);
 
             // Return any errors we may have encountered during token creation.
             if($token instanceof \Response){
@@ -82,15 +86,12 @@ class AuthenticationController extends Controller
                                      'errors' => $validation->getMessageBag()]);
         }
 
-        // Generate a Token Key for the User
-        $token_key = $this->tokenManager->setTokenKey();
-
         // Create the new User
         $new_user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'token_key' => $token_key
+            'token_key' => $request->token_key
         ]);
 
         // Attempt to set a JWT Token on the User (will return JSON errors if unsuccessful)

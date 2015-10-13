@@ -4,15 +4,18 @@
             Log In to the App
         </h2>
         <form>
+            <!-- Email Form Input -->
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="text" name="email" id="email" class="form-control" v-model="credentials.email">
             </div>
+            <!-- Password Form Input -->
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password" class="form-control"
                        v-model="credentials.password">
             </div>
+            <!-- Log In Form Submit -->
             <button type="submit" class="btn btn-primary" v-on="click: validate">Log In</button>
         </form>
         <hr>

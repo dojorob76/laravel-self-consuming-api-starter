@@ -9,6 +9,7 @@ $api->version('v1', function($api){
     // Set the namespace for the API_v1-specific routes
     $api->group(['namespace' => 'App\Api\Controllers', 'middleware' => 'cors'], function($api){
 
+         $api->get('test2', 'AuthenticationController@test');
         // Routes that do NOT require authentication
         $api->post('login', ['as' => 'login.post', 'uses' => 'AuthenticationController@login']);
         $api->post('register', ['as' => 'register.post', 'uses' => 'AuthenticationController@register']);
@@ -28,12 +29,20 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::get('test', function(){
-//    $token = Request::cookie('jwt');
-//    $jwt = JWTAuth::getPayload($token);
+Route::get('test-user-list', function(){
     $users = \App\User::all();
 
     return $users;
+});
+
+Route::get('test', function(\Illuminate\Encryption\Encrypter $encrypter){
+    $token = Request::cookie('jwt');
+    $jwt = JWTAuth::getPayload($token);
+    $decrypted = $encrypter->decrypt($jwt['xsrfToken']);
+    //$users = \App\User::all();
+    $csrf = csrf_token();
+
+    var_dump($csrf);
 });
 
 Route::get('register', 'AuthenticationController@register');

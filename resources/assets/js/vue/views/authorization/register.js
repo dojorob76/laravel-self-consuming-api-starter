@@ -2,23 +2,25 @@ module.exports = {
 
     inherit: true,
 
-    template: require('./login.template.html'),
+    template: require('./register.template.html'),
 
     data: function(){
         return{
-            credentials: {
+            registration: {
+                name: '',
                 email: '',
                 password: '',
+                password_confirmation: '',
                 token_key: this.csrf
             }
         };
     },
 
     methods: {
-        validate: function(e){
+        register: function(e){
             e.preventDefault();
 
-            this.$http.post( this.rootApiPath + '/login', this.credentials)
+            this.$http.post( this.rootApiPath + '/register', this.registration)
                 .success(function(data){
                     console.log(data);
                     this.updateJwt(data.jwtoken);
