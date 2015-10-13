@@ -1,16 +1,36 @@
 var Vue = require('vue');
 Vue.use(require('vue-resource'));
 
+var rootApiPath = 'SET-YOUR-ROOT-API-PATH-HERE'; //ex. 'http://api.app-name.com'
+var appDomain = 'SET-YOUR-APP-DOMAIN-HERE'; //ex. '.app-name.com'
+
+var jsCookie = require('js-cookie');
+jsCookie.defaults = {domain: appDomain};
+
+Vue.http.headers.common['Authorization'] = 'Bearer ' + jsCookie.get('jwt');
+
 new Vue({
     el: '#app',
 
     data: {
-        //rootApiPath: 'http://api.app.tld',
-        rootApiPath: 'http://api.mmh.app',
+        rootApiPath: rootApiPath,
+        csrf: $('meta[name="csrf-token"]').attr('content'),
         currentView: 'login-view'
     },
 
     components: {
-        'login-view': require('./views/authorization/login')
+        'login-view': require('./views/authorization/login'),
+        'register-view': require('./views/authorization/register')
+    },
+
+    methods: {
+        updateJwt: function(jwtoken){
+            if(jwtoken != null && jwtoken != 'undefined'){
+                jsCookie.set('jwt', jwtoken);
+            }
+            else{
+                jsCookie.remove('jwt', jwtoken);
+            }
+        }
     }
 });

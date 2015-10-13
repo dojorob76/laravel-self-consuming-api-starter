@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'secret' => env('JWT_SECRET', 'changeme'),
+    'secret' => env('JWT_SECRET'),
 
     /*
     |--------------------------------------------------------------------------
@@ -89,7 +89,7 @@ return [
     |
     */
 
-    'required_claims' => ['iss', 'iat', 'exp', 'nbf', 'sub', 'jti'],
+    'required_claims' => ['iss', 'iat', 'exp', 'nbf', 'sub', 'jti', 'xsrfToken'],
 
     /*
     |--------------------------------------------------------------------------
