@@ -1,0 +1,1 @@
+Controllers for the API should be placed in this directory.

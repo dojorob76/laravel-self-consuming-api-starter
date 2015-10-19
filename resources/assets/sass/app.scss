@@ -1,2 +1,8 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// Fix Directory Structure issues with vendor CSS files
+@import "overrides/directory_structure";
 
+// Bring in Bootstrap
+@import "../../../vendor/bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Custom Form Error Styling
+@import "forms/errors";
