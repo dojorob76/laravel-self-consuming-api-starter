@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+        <h1 class="text-center">Welcome! <small>(Vue)</small></h1>
+        <hr>
+        <div v-if="authorized" class="text-center">
+            <p>You are logged in!</p>
+            <button class="btn btn-default" v-on:click="queryTest('test-one')">NON-API Query String</button>
+            <button class="btn btn-default" v-on:click="queryTest('test-two')">API Query String</button>
+            <button class="btn btn-default" v-on:click="headerTest('test-three')">NON-API Header Refresh</button>
+            <button class="btn btn-default" v-on:click="headerTest('test-four')">API Header Refresh</button>
+            <hr>
+            <p>{{authMsg}}</p>
+        </div>
+        <div v-else class="text-center">
+            <p>Please Log in or Register now.</p>
+            <button class="btn btn-primary" v-on:click="$root.route('login-view')">Log In</button>
+            <button class="btn btn-default" v-on:click="$root.route('register-view')">Register</button>
+        </div>
+    </div>
+</div>

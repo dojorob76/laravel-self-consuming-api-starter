@@ -21,7 +21,9 @@ elixir(function(mix) {
         .scripts([
             paths.bower + 'jquery/dist/jquery.js',
             paths.bower + 'select2/dist/js/select2.full.js',
-            paths.boot + 'javascripts/bootstrap.js'
+            paths.boot + 'javascripts/bootstrap.js',
+            'vendor/**',
+            'custom/**'
         ])
 
         .browserify('vue/app.js', 'public/js/bundle.js')

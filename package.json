@@ -2,7 +2,7 @@
   "private": true,
   "devDependencies": {
     "gulp": "^3.8.8",
-    "vue": "^1.0.0-rc.1",
+    "vue": "vuejs/vue#dev",
     "vue-resource": "^0.1.16"
   },
   "dependencies": {
