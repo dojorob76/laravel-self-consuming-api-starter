@@ -90,8 +90,8 @@ class UserAuthentication
         // Set a cookie with 'Http Only' set to false so that it can be read by JS
         $cookie = \Cookie::make('jwt', $jwt, 120, '/', env('SESSION_DOMAIN'), false, false);
 
-        //return redirect('/laravel')->header('Authorization', 'Bearer ' . $jwt)->withCookie($cookie);
-        return redirect('/laravel')->header('Authorization', 'Bearer ' . $jwt)->withCookie($cookie);
+        //return redirect('/')->header('Authorization', 'Bearer ' . $jwt)->withCookie($cookie);
+        return redirect('/')->header('Authorization', 'Bearer ' . $jwt)->withCookie($cookie);
     }
 
     /**

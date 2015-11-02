@@ -1,8 +1,11 @@
-// Fix Directory Structure issues with vendor CSS files
-@import "overrides/directory-structure";
+// Pre-processed Overrides
+@import "overrides/bootstrap-overrides";
 
 // Bring in Bootstrap
 @import "../../../vendor/bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
-// Custom Form Error Styling
+// Global Styles
+@import "global";
+
+// Custom Form Error Styles
 @import "forms/errors";

@@ -9,12 +9,13 @@
             </h1>
             <hr>
             <ul class="list-inline text-center">
-                <li><a class="btn btn-lg btn-default" href="/laravel">Use Laravel</a></li>
-                <li><a class="btn btn-lg btn-default" href="/vue">Use Vue</a></li>
+                <li><a class="btn btn-lg btn-default" href="{{$main_route}}">Main Site</a></li>
+                <li><a class="btn btn-lg btn-default" href="{{$mobile_route}}">Mobile Subdomain</a></li>
+                <li><a class="btn btn-lg btn-default" href="{{$admin_route}}">Admin Subdomain</a></li>
             </ul>
             <hr>
-            <h4>About This App</h4>
-            <p>
+            <h4>About This App <small>(Under Construction)</small></h4>
+            <p class="text-center">
                 <a href="http://laravel.com/docs/5.1">Laravel 5.1</a> |
                 <a href="https://github.com/vuejs/vue">Vue.js [1.0.*]</a> |
                 <a href="https://github.com/vuejs/vue-resource">Vue Resource</a> |
