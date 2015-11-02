@@ -7,7 +7,7 @@ $dispatcher = app('Dingo\Api\Dispatcher');
 $api->version('v1', function($api){
 
     // Set the namespace for the API_v1-specific routes
-    $api->group(['namespace' => 'App\Api\Controllers', 'middleware' => 'cors'], function($api){
+    $api->group(['namespace' => 'App\Api\Controllers'], function($api){
 
         // Routes that do NOT require authentication
         $api->post('form-login', ['as' => 'form-login.post', 'uses' => 'AuthenticationController@formLogin']);
@@ -35,23 +35,33 @@ $api->version('v1', function($api){
 
 });
 
-Route::get('/', function(){return view('intro');});
+Route::group(['domain' => 'mobile' . env('SESSION_DOMAIN')], function(){
+    Route::get('/', function () {
+        return view('mobile_sub.welcome');
+    });
+});
 
-Route::get('laravel', 'WelcomeController@welcome');
+Route::group(['domain' => 'admin' . env('SESSION_DOMAIN')], function(){
+    Route::get('/', 'WelcomeController@adminWelcome');
 
-Route::get('vue', function () {return view('vue');});
+    // Register through the Laravel App form without using the API and without using AJAX
+    Route::get('form-register', 'Admin\AuthenticationController@register');
+    Route::post('form-register', 'Admin\AuthenticationController@formRegister');
 
-// Register through the Laravel App form without using the API and without using AJAX
-Route::get('form-register', 'AuthenticationController@register');
-Route::post('form-register', 'AuthenticationController@formRegister');
+    // Log in through the Laravel App form without using the API and without using AJAX
+    Route::get('form-login', 'Admin\AuthenticationController@login');
+    Route::post('form-login', 'Admin\AuthenticationController@formLogin');
+});
+
+Route::get('/', 'WelcomeController@welcome');
+
+Route::get('/intro', function(){
+    return view('all.intro');
+});
 
 // Register through the Laravel App form using the API (called from the Controller) and AJAX
 Route::get('form-register-ajax', 'AuthenticationController@registerAjax');
 Route::post('form-register-ajax', 'AuthenticationController@formRegisterAjax');
-
-// Log in through the Laravel App form without using the API and without using AJAX
-Route::get('form-login', 'AuthenticationController@login');
-Route::post('form-login', 'AuthenticationController@formLogin');
 
 // Log in through the Laravel App form using the API (called from the Controller) and AJAX
 Route::get('form-login-ajax', 'AuthenticationController@loginAjax');
@@ -63,7 +73,7 @@ Route::get('logout', 'AuthenticationController@logout');
 Route::group(['middleware' => 'token.auth'], function(){
     // Example Test TODO: Delete Me
     Route::get('test-auth-one', ['as' => 'test-auth-one.get', 'uses' => function(){
-        return view('tests.test-auth-one');
+        return view('all.test-auth-one');
     }]);
 });
 

@@ -17,7 +17,16 @@ class WelcomeController extends BaseController
 
         $jwtQuery = $this->setJwtQuery($request);
 
-        return view('laravel')->with([
+        return view('welcome')->with([
+            'jwtQuery' => $jwtQuery
+        ]);
+    }
+
+    public function adminWelcome(Request $request){
+
+        $jwtQuery = $this->setJwtQuery($request);
+
+        return view('admin_sub.welcome')->with([
             'jwtQuery' => $jwtQuery
         ]);
     }

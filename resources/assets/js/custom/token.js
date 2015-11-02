@@ -11,6 +11,7 @@ var jwToken = {
         return fullToken.substr(fullToken.indexOf(' ')+1);
     },
     addCookie: function(jwt){
+        // Set the JWT in the jwt Cookie - valid for 2 hours
         docCookies.setItem('jwt', jwt, 7200, '/', appGlobals.appDomain);
     },
     removeCookie: function(){

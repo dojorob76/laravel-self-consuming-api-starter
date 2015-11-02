@@ -69,7 +69,7 @@ var formAjax = {
         // On successful Login and/or Registration, set the JWT Cookie and redirect to welcome page
         if (data.jwtoken) {
             jwToken.addCookie(data.jwtoken);
-            location.replace('/laravel', function () {
+            location.replace('/', function () {
                 // Break out of the $.each loop so redirect actually occurs
                 return false;
             });

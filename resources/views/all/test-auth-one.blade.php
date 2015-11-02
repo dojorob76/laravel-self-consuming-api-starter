@@ -11,8 +11,9 @@
             the NON-API domain.
         </p>
         <p class="text-center">
-            <a href="/vue">Click here to go to <b>Vue</b></a> | <a href="/laravel">Click here to go to
-                <b>Laravel</b></a>
+            <a href="{{$mobile_route}}">Go to the <b>Mobile Subdomain</b></a> |
+            <a href="{{$admin_route}}">Go to the <b>Admin Subdomain</b></a> |
+            <a href="{{$main_route}}">Go to the <b>Main Domain</b></a>
         </p>
     </div>
 @endsection
