@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,17 +17,21 @@
         <!-- Base jQuery -->
         <script src="{{ elixir('js/all.js') }}"></script>
 
+        <!-- AJAX Set Up -->
+        <script>
+            $.ajaxSetup({headers: {'X-CSRF-TOKEN': appGlobals.csrf, 'Authorization': jwToken.setHeader()}});
+        </script>
     </head>
 
-    <body id="app"><!--This ID corresponds to the main Vue.js File (resources/assets/js/vue/app.js)-->
+    <body id="app"><!--This ID corresponds to the root Vue.js File (resources/assets/js/vue/app.js)-->
 
         <div class="container-fluid">
-            <!-- Load Blade Page Content -->
+            <!-- Load Page Content -->
             @yield('content')
         </div>
 
-        <!-- Vue Core Script -->
-        <script src="{{ elixir('js/bundle.js') }}"></script>
+        <!-- Load Footer JS -->
+        @yield('postscripts')
     </body>
 
 </html>
