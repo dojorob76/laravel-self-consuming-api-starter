@@ -1,13 +1,22 @@
 ### Laravel/Vue Self Consuming API Starter App
 
-This is a simple starter app for a self-consuming API with subdomains built on the Laravel 5.1 framework,
-incorporating [Vue.js](https://github.com/yyx990803/vue), [JWT Auth](https://github.com/tymondesigns/jwt-auth), [Dingo
-API](https://github.com/dingo/api), and [CORS](https://github.com/barryvdh/laravel-cors). It comes with an example set
-up that has log in and registration on each subdomain, and where the JWT is passed across each subdomain using cookies.
-To keep the JWT secure, there is an additional custom claim added to it that checks against the current CSRF, which
-we store on the user. (See [this article](https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage/)
-for more information) To implement this, there are 3 custom middlewares in place to authorize and refresh the JWT 
-properly (with the custom claim).
+This is a simple starter app for a self-consuming API with subdomains built on the [Laravel 5.1](http://laravel
+.com/docs/5.1/releases#laravel-5.1.11) framework, incorporating [Vue.js](https://github.com/yyx990803/vue), [JWT
+Auth](https://github.com/tymondesigns/jwt-auth), [Dingo API](https://github.com/dingo/api), and [CORS](https://github
+.com/barryvdh/laravel-cors).
+
+It ihcludes an example set up that has log in and registration on each subdomain. (More details on this below.)
+
+The JWT is passed across each subdomain using cookies. To keep the JWT secure, there is an additional custom claim
+added to it that checks against the current CSRF, which we store on the user. (See [this article](https://stormpath
+.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage/) for more information). To implement this, there are
+3 custom middlewares in place to authorize and refresh the JWT properly (with the custom claim):
+* Route Middelwares (simple extensions of jwt.auth, and jwt.refresh middlewares from the [JWT Auth package]
+(https://github.com/tymondesigns/jwt-auth))
+** token.auth -> app/Http/Middleware/TokenAuth.php
+** token.refresh -> app/Http/Middleware/TokenRefresh.php
+* Global Middleware (If Laravel Auth is not set, we check for JWT existence and set it if there is a valid JWT)
+** app/Http/Middleware/LoginUserFromToken.php
 
 #### The Example App
 
@@ -21,9 +30,9 @@ allows us to access it from the main domain and other subdomains with the Dingo 
 [Internal Requests](https://github.com/dingo/api/wiki/Internal-Requests) section of the [Dingo Wiki documentation]
 (https://github.com/dingo/api/wiki) for more information on this.
 
-The API Controllers are stored in the app/Api directory. **PLEASE NOTE:** All of the app controllers extend a custom
-Base Controller (at 'app/Http/Controllers/BaseController.php), so that the Dingo dispatcher and helpers are always
-available.
+The API Controllers are stored in the app/Api directory. **PLEASE NOTE:** All of the app controllers (main and
+subdomains) extend a custom Base Controller (at 'app/Http/Controllers/BaseController.php), so that the Dingo
+dispatcher and helpers are always available.
 
 ##### The Mobile Subdomain
 
