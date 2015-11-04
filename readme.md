@@ -6,8 +6,26 @@ each subdomain, where the JWT is passed across each subdomain using cookies. To 
 additional custom claim added to it that checks against the current CSRF, which we store on the user. To implement
 this, there are 3 custom middlewares in place to authorize and refresh the JWT properly (with the custom claim).
 
-The example app assumes 3 subdomains. 'api', 'mobile', and 'admin'. You can have as many subdomains as you want. This
- is purely for example purposes.
+#### The Example App
+
+The example app uses 3 subdomains. 'api', 'mobile', and 'admin'. You can have as many subdomains as you want. This is
+purely for example purposes. Here is how the example app works:
+
+##### The API Subdomain
+
+The 'api' subdomain serves the API. It's paths are contained in a Dingo-generated router in the routes.php file. This
+allows us to access it from the main domain and other subdomains with the Dingo dispatcher and helpers. See the
+[Internal Requests](https://github.com/dingo/api/wiki/Internal-Requests) section of the [Dingo Wiki documentation]
+(https://github.com/dingo/api/wiki) for more information on this.
+
+The API Controllers are stored in the app/Api directory. **PLEASE NOTE:** All of the app controllers extend a custom
+Base Controller (at 'app/Http/Controllers/BaseController.php), so that the Dingo dispatcher and helpers are always
+available.
+
+##### The Mobile Subdomain
+
+The 'mobile' subdomain serves the Vue.js implementation of the example app, which interacts with the API via Vue
+Resource.
 
 #### Installation:
 
