@@ -1,10 +1,13 @@
 ### Laravel/Vue Self Consuming API Starter App
 
 This is a simple starter app for a self-consuming API with subdomains built on the Laravel 5.1 framework,
-incorporating Vue.js, JWT Auth, Dingo API, and CORS. It comes with an example set up with log in and registration on
-each subdomain, where the JWT is passed across each subdomain using cookies. To keep the JWT secure, there is an
-additional custom claim added to it that checks against the current CSRF, which we store on the user. To implement
-this, there are 3 custom middlewares in place to authorize and refresh the JWT properly (with the custom claim).
+incorporating [Vue.js](https://github.com/yyx990803/vue), [JWT Auth](https://github.com/tymondesigns/jwt-auth), [Dingo
+API](https://github.com/dingo/api), and [CORS](https://github.com/barryvdh/laravel-cors). It comes with an example set
+up that has log in and registration on each subdomain, and where the JWT is passed across each subdomain using cookies.
+To keep the JWT secure, there is an additional custom claim added to it that checks against the current CSRF, which
+we store on the user. (See [this article](https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage/)
+for more information) To implement this, there are 3 custom middlewares in place to authorize and refresh the JWT 
+properly (with the custom claim).
 
 #### The Example App
 
@@ -33,7 +36,7 @@ Clone this repo (https://github.com/dojorob76/laravel-vue-api-starter) into your
 'composer install', 'npm install', 'bower install', and 'gulp'. Note: Composer and NPM must already be installed
 in your environment. Gulp and Bower must be installed (via NPM) before running them as well.
 
-Next, copy .env.example to .env, and run the following commands:
+Next, copy .env.example to .env, and install the following keys:
 
 A Laravel key will need to be generated with the following command:
 
