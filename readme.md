@@ -1,6 +1,10 @@
-### Laravel/Vue Self-Consuming API Starter App
+## Laravel/Vue Self-Consuming API Starter App
 
 This is a simple starter app for a self-consuming API with subdomains built on the [Laravel 5.1](http://laravel.com/docs/5.1/releases#laravel-5.1.11) framework, incorporating [Vue.js](https://github.com/yyx990803/vue), [JWT Auth](https://github.com/tymondesigns/jwt-auth), [Dingo API](https://github.com/dingo/api), and [CORS](https://github.com/barryvdh/laravel-cors). It includes an example set up that has log in and registration with authentication middleware testing links on each subdomain (more details below).
+
+
+----------
+
 
 #### JWT Cross-(sub)Domain Implementation
 
@@ -11,6 +15,10 @@ The JWT is passed across each subdomain using cookies. To keep the JWT secure, t
 	* token.refresh -> app/Http/Middleware/TokenRefresh.php
 * Global Middleware (If Laravel Auth is not set, we check for valid JWT existence and set it if one is found)
 	* app/Http/Middleware/LoginUserFromToken.php
+
+
+----------
+
 
 #### The Example App
 
@@ -52,11 +60,50 @@ All routes *not* included in Route groups in routes.php belong to the main domai
 
 The Controllers and blade templates for the main domain are located in the standard Laravel directories ('app/Http/Controllers', and 'resources/views').
 
-#### Installation:
 
-Clone this repo (https://github.com/dojorob76/laravel-vue-api-starter) into your project directory, then run 'composer install', 'npm install', 'bower install', and 'gulp'. Note: Composer and NPM must already be installed in your environment. Gulp and Bower must be installed (via NPM) before running them as well.
+----------
+### Installation:
 
-Next, copy .env.example to .env, and install the following keys:
+**Before you install:**
+Make sure that your development environment is set up with subdomains. Those instructions are beyond the scope of this document, but here is an example of how this would work with a [Homestead Vagrant box](http://laravel.com/docs/5.1/homestead):
+
+For the purposes of this example, we will pretend that your dev files are stored on your computer in C:/Dev (replace this with the correct path), and that your dev app will be called app.test with an 'api' subdomain, a 'mobile' subdomain, and an 'admin' subdomain (replace these with your custom names).
+
+In your Homestead.yaml file...
+
+    folders:
+        -map: C:/Dev
+         to: /home/vagrant/Code
+
+    sites:
+        -map: app.test
+         to: /home/vagrant/Code/app/public
+        -map: api.app.test
+         to: /home/vagrant/Code/app/public
+        -map: mobile.app.test
+         to: /home/vagrant/Code/app/public
+        -map: admin.app.test
+         to: /home/vagrant/Code/app/public
+
+In your 'hosts' file ('/private/etc/hosts' on Mac, 'C:/Windows/System32/drivers/etc/hosts' on Windows)...
+
+    192.168.10.10 app.test
+    192.168.10.10 api.app.test
+    192.168.10.10 mobile.app.test
+    192.168.10.10 admin.app.test
+*(make sure that '192.168.10.10' matches the 'ip:' line at the top of your Homestead.yaml file)*
+
+Then: `vagrant provision`
+
+> **IMPORTANT:** If you want to use the initial example set-up to test the JWT authentication across subdomains, *you will need to have **at least three subdomains** in your dev environment.* 
+> Optionally, for the easiest (least amount of configuration) implementation, you should call these 3 subdomains 'api', 'mobile', and 'admin'.
+
+**Once Your Dev Environment is Properly Configured:**
+
+Clone this repo (https://github.com/dojorob76/laravel-vue-api-starter) into your project directory, then run `composer install`, `npm install`, `bower install`, and `gulp`. 
+**Note**: Composer and NPM must already be installed in your environment. Gulp and Bower must be installed (via NPM) before running them as well.
+
+Next, copy .env.example to a new file called .env in the same directory, and install the following keys:
 
 A *Laravel key* will need to be generated with the following command:
 
@@ -67,6 +114,63 @@ A *JWT Auth* key will need to be generated with the following command:
     $ php artisan jwt:generate
 
 The APP_KEY in the .env file should be set to the Laravel key, and the JWT_SECRET in the .env file should be set to the JWT key (this may appear in config/jwt.php - cut and paste it into .env).
+
+If you would like to make use of the [barryvdh IDE Helper](https://github.com/barryvdh/laravel-ide-helper) (which I highly recommend), run the following command:
+
+    $ php artisan ide-helper:generate
+
+Next, in the .env file, you will need to declare your Dingo API settings in accordance with the instructions found in the [Wiki Documentation, Configuration Section](https://github.com/dingo/api/wiki/Configuration), as well as your domain settings which are used as global variables in various files. 
+
+Once again, for the purposes of this example, we will pretend that your dev app is called 'app.test', and your subdomains are 'api', 'mobile', and 'admin' (replace these with your custom names). So, as an example:
+
+    API_STANDARDS_TREE-x
+    API_SUBTYPE=app
+    API_DOMAIN=api.app.test
+    API_VERSION=v1
+    API_NAME=App API
+    ...
+    ...
+    ...
+
+    SESSION_DOMAIN=.app.test
+    APP_MAIN=app.test
+
+These variables also need to be declared for use with Vue and AJAX. To do this, go to 'resources/assets/js/custom/app-globals.js' and change the following lines to match the variables set in .env. 
+
+So, change:
+
+    rootApiPath : 'YOUR-API-PATH-HERE'
+To:
+
+    rootApiPath : 'http://api.app.test'
+And change:
+    
+    appDomain : 'YOUR-APP(SESSION)-DOMAIN-HERE'
+To:
+
+    appDomain: '.app.test'
+
+*The above assumes our example settings ('app.test', 'api.app.test', etc.). Again, you will need to replace these with your actual settings.
+
+**If you are not using 'mobile' and 'admin' as Subdomains:**
+
+The example app is configured to use 'api', 'mobile', and 'admin' as subdomains. If your subdomain names are different, you will need to do a little more configuration if you want to test things out with the initial test set up. If you are already using 'mobile' and 'admin', or if you do not want to use the included test set up, you can safely ignore this section.
+
+First, we have a custom global view composer that makes the Dingo Dispatcher and various domain routes available to us from every view. You will need to update this file to match your custom subdomain names.
+
+Go to 'app\Http\ViewComposers\GlobalComposer' to update the `$mobile_route`, and `$admin_route` variables to match your custom set up.
+
+These variables are used in the following files:
+
+* 'resources/views/all/intro.blade.php'
+* 'resources/views/all/test-auth-one.blade.php'
+
+...so you will need to update them there as well.
+
+Finally, you will need to change the Route Groups in routes.php from '['domain' => 'admin']' and '['domain' => 'mobile']' to whatever your custom subdomain names actually are.
+
+
+----------
 
 #### Included Packages
 
