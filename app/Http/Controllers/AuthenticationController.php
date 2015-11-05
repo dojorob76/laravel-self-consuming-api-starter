@@ -2,24 +2,6 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
-class AuthenticationController extends Controller
-{
-
-    /**
-     * Instantiate the non-api Authentication Controller
-     */
-    public function __construct()
-    {
-    }
-
-    public function register(){
-        return view('auth.register');
-=======
 use Dingo\Api\Dispatcher;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -99,6 +81,5 @@ class AuthenticationController extends BaseController
         $invalidate = $this->userAuth->logoutUser($user);
 
         return redirect()->back()->withCookie($invalidate);
->>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
     }
 }

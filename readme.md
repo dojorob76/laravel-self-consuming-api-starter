@@ -1,33 +1,3 @@
-<<<<<<< HEAD
-### Laravel Starter App
-
-This is a simple starter app for Laravel 5.1 incorporating Vue.js, JWT Tokens, Dingo API, and CORS. Front end packages
-include Bootstrap SASS, Select2 (with Bootstrap theme), and FontAwesome.
-
-To install: Clone this repo (https://github.com/dojorob76/laravel-restful-starter-app.git) into your project
-directory, then run 'composer install', 'npm install', 'bower install', and 'gulp'. Note: Composer and NPM must
-already be installed in your environment. Gulp and Bower must be installed (via NPM) before running them as well.
-
-A boilerplate Vue file and app.blade.php file are included for convenience.
-
-#### Included Packages
-
-<<<<<<< HEAD
-* Vue https://github.com/yyx990803/vue
-* Vue Resource https://github.com/vuejs/vue-resource
-* Dingo API https://github.com/dingo/api
-* JWT Auth https://github.com/tymondesigns/jwt-auth
-* CORS https://github.com/barryvdh/laravel-cors
-* JS-Cookie https://github.com/js-cookie/js-cookie/tree/v2.0.3#readme
-* IDE Helper https://github.com/barryvdh/laravel-ide-helper
-* Doctrine/Dbal https://github.com/doctrine/dbal
-* jQuery https://github.com/jquery/jquery
-* Bootstrap SASS https://github.com/twbs/bootstrap-sass
-* Select2 https://select2.github.io/
-* Font Awesome https://fortawesome.github.io/Font-Awesome/
-* Select2 Bootstrap styles https://fk.github.io/select2-bootstrap-css/
-=======
-=======
 ## Laravel/Vue Self-Consuming API Starter App
 
 This is a simple starter app for a self-consuming API with subdomains built on the [Laravel 5.1](http://laravel.com/docs/5.1/releases#laravel-5.1.11) framework, incorporating [Vue.js](https://github.com/yyx990803/vue), [JWT Auth](https://github.com/tymondesigns/jwt-auth), [Dingo API](https://github.com/dingo/api), and [CORS](https://github.com/barryvdh/laravel-cors). It includes an example set up that has log in and registration with authentication middleware testing links on each subdomain (more details below).
@@ -36,7 +6,6 @@ This is a simple starter app for a self-consuming API with subdomains built on t
 ----------
 
 
->>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
 #### JWT Cross-(sub)Domain Implementation
 
 The JWT is passed across each subdomain using cookies. To keep the JWT secure, there is an additional custom claim added to it that checks against the current CSRF, which we store on the user. (See [this article](https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage/) for more information). To implement this, there are 3 custom middlewares in place to authorize and refresh the JWT properly (with the custom claim):
@@ -53,13 +22,7 @@ The JWT is passed across each subdomain using cookies. To keep the JWT secure, t
 
 #### The Example App
 
-<<<<<<< HEAD
-The example app uses 3 subdomains. 'api', 'mobile', and 'admin'. You can have as many subdomains as you want. This is
-purely for example purposes. The main domain, mobile subdomain, and admin subdomain each offer an example of a
-different way to interact with the API. Here, specifically, is how the example app works:
-=======
 The example app uses 3 subdomains. 'api', 'mobile', and 'admin'. You can have as many subdomains as you want. This is purely for example purposes. Here is how the example app works:
->>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
 
 ##### The API Subdomain
 
@@ -150,10 +113,13 @@ A *JWT Auth* key will need to be generated with the following command:
 
     $ php artisan jwt:generate
 
-The APP_KEY in the .env file should be set to the Laravel key, and the JWT_SECRET in the .env file should be set to the JWT key (this may appear in config/jwt.php - cut and paste it into .env).
+The APP_KEY in the .env file should automatically get set to the Laravel key, but you will need to copy/paste the JWT
+ key to the .env file JWT_SECRET variable (replace 'GenerateMe').
 
-If you would like to make use of the [barryvdh IDE Helper](https://github.com/barryvdh/laravel-ide-helper) (which I highly recommend), run the following command:
+If you would like to make use of the [barryvdh IDE Helper](https://github.com/barryvdh/laravel-ide-helper) (which I 
+highly recommend), run the following commands:
 
+    $ php artisan clear-compiled
     $ php artisan ide-helper:generate
 
 Next, in the .env file, you will need to declare your Dingo API settings in accordance with the instructions found in the [Wiki Documentation, Configuration Section](https://github.com/dingo/api/wiki/Configuration), as well as your domain settings which are used as global variables in various files. 
@@ -188,45 +154,6 @@ To:
     appDomain: '.app.test'
 
 *The above assumes our example settings ('app.test', 'api.app.test', etc.). Again, you will need to replace these with your actual settings.
-<<<<<<< HEAD
->>>>>>> Updates to Read Me
-
-Follow the links above for more information on incorporating these packages in your own Laravel apps. No
-configuration is included here, but configuration files for jwt, cors, and dingo have been published to the config
-directory for convenience.
-
-**Please Note:** This is a personal project starter, which I have generated for my own use, and am making available
-to anyone who finds it useful to implement in any manner they deem appropriate. No direct affiliation to Laravel and/or
-any of the other packages included here is implied. Everything herein is licensed under the MIT license.
-
-## Laravel PHP Framework
-
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
-
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
-
-## Official Documentation
-
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
-=======
 
 **If you are not using 'mobile' and 'admin' as Subdomains:**
 
@@ -248,6 +175,30 @@ Finally, you will need to change the Route Groups in routes.php from '['domain' 
 
 ----------
 
+#### Start Testing
+
+Before you can begin testing the app with the example set-up, you will need to migrate your database, which means you
+ will need to have your database set up. Instructions for this can be found in the [Laravel Documentation]
+ (http://laravel.com/docs/5.1/database),
+ but for the purposes of testing the app, I recommend simply generating a SQLite DB by running the following command:
+ 
+     $ touch storage/database.sqlite
+     
+ (You can easily delete this later)
+ 
+ When you have a database ready, migrate it with the command:
+ 
+     $ php artisan migrate
+ 
+ Now you can open the app in your browser, and visit the test pages. (Register a User first.) When you're finished 
+ testing, just remove the pages you don't want/need, and keep on building.
+ 
+ **NOTE:** If you are going to extend/change your User model, just be sure to leave the 'token_key' field alone if 
+ you will continue to use JWT as it is set up here. You will find all the code that is being used to make this 
+ version of authentication work in the 'app/Repositories', 'app/Services', and 'app/Utilities' directories.
+
+----------
+
 #### Included Packages
 
 * Laravel 5.1.11 http://laravel.com/docs/5.1/releases#laravel-5.1.11
@@ -264,4 +215,3 @@ Finally, you will need to change the Route Groups in routes.php from '['domain' 
 Follow the links above for more information on incorporating these packages in your own Laravel apps. Configuration files for jwt, cors, and dingo have been published to the config directory..
 
 **Please Note:** This is a personal project starter, which I have generated for my own use, and am making available to anyone who finds it useful to implement in any manner they deem appropriate. No direct affiliation to Laravel and/or any of the other packages included here is implied. All packages herein are licensed under the [MIT license](http://opensource.org/licenses/MIT).
->>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7

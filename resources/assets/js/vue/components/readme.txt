@@ -1,1 +1,0 @@
-Vue.js Components can be stored in this folder.

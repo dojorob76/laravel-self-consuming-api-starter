@@ -1,1 +1,0 @@
-Vue.js Filters can be stored in this folder.

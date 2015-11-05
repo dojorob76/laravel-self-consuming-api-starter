@@ -1,19 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "Laravel Starter App",
-  "version": "0.0.1",
-  "homepage": "https://github.com/MovieMeetinghouse/laravel-starter-app",
-  "authors": [
-    "Donna Robinson <donna@moviemeetinghouse.com>"
-  ],
-  "description": "Front end dependencies for the Laravel Starter App with Vue, JWT, and Dingo. Includes Bootstrap SASS, Font Awesome, and Select2.",
-  "main": "vendor/bower_components",
-  "moduleType": [],
-  "keywords": [
-    "Laravel5",
-    "Bootstrap3",
-    "Select2"
-=======
   "name": "Laravel Vue API Starter",
   "version": "0.0.1",
   "homepage": "https://github.com/dojorob76/laravel-vue-api-starter",
@@ -26,7 +11,6 @@
   "keywords": [
     "Bootstrap3",
     "jQuery"
->>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
   ],
   "license": "MIT",
   "ignore": [
@@ -38,16 +22,6 @@
   ],
   "dependencies": {
     "jquery": "~2.1.4",
-<<<<<<< HEAD
-    "bootstrap-sass": "~3.3.5",
-    "select2": "~4.0.0",
-    "select2-bootstrap-css": "select2-bootstrap3-css#~1.4.6",
-    "font-awesome": "fontawesome#~4.4.0"
-  },
-  "resolutions": {
-    "select2": "~4.0.0"
-=======
     "bootstrap-sass": "~3.3.5"
->>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
   }
 }

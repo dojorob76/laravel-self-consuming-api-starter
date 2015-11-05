@@ -7,34 +7,6 @@ $dispatcher = app('Dingo\Api\Dispatcher');
 $api->version('v1', function($api){
 
     // Set the namespace for the API_v1-specific routes
-<<<<<<< HEAD
-    $api->group(['namespace' => 'App\Api\Controllers', 'middleware' => 'cors'], function($api){
-
-        // Routes that do NOT require authentication
-        $api->post('login', ['as' => 'login.post', 'uses' => 'AuthenticationController@login']);
-        $api->post('register', ['as' => 'register.post', 'uses' => 'AuthenticationController@register']);
-
-        // Routes that DO require (JWT) authentication
-        $api->group(['middleware' => 'token.auth'], function($api){
-            $api->get('test-auth-one', ['as' => 'test-one.get', 'uses' => function(){
-                return view('tests.test-auth-one');
-            }]);
-        });
-
-    });
-
-});
-
-Route::get('/', function () {
-    return view('main');
-});
-
-Route::get('register', 'AuthenticationController@register');
-
-Route::group(['middleware' => 'token.auth'], function(){
-    Route::get('/test-auth-two', ['as' => 'test-two.get', 'uses' => function(){
-        return view('tests.test-auth-two');
-=======
     $api->group(['namespace' => 'App\Api\Controllers'], function($api){
 
         // Routes that do NOT require authentication
@@ -111,6 +83,5 @@ Route::group(['middleware' => 'token.refresh'], function(){
     Route::get('test-auth-three', ['as' => 'test-auth-three.get', 'uses' =>function(){
         return ['msg' => 'Your JWT was successfully set, and was authorized via the request header on the NON-API
         domain. It has also been refreshed.'];
->>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
     }]);
 });

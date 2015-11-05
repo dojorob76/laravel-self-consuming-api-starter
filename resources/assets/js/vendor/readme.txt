@@ -1,1 +1,0 @@
-Vendor JS scripts that can not be installed via Bower or Node/NPM can be stored in this folder.
