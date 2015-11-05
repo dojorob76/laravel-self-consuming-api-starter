@@ -95,7 +95,7 @@ In your 'hosts' file ('/private/etc/hosts' on Mac, 'C:/Windows/System32/drivers/
 
 Then: `vagrant provision`
 
-> **IMPORTANT:** If you want to use the initial example set-up to test the JWT authentication across subdomains, *you will need to have **at least three subdomains** in your dev environment.* 
+> **IMPORTANT:** If you want to use the initial example set-up to test the JWT authentication across subdomains, you will need to have **at least three subdomains** in your dev environment.
 > Optionally, for the easiest (least amount of configuration) implementation, you should call these 3 subdomains 'api', 'mobile', and 'admin'.
 
 **Once Your Dev Environment is Properly Configured:**
