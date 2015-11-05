@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### Laravel Starter App
 
 This is a simple starter app for Laravel 5.1 incorporating Vue.js, JWT Tokens, Dingo API, and CORS. Front end packages
@@ -26,6 +27,16 @@ A boilerplate Vue file and app.blade.php file are included for convenience.
 * Font Awesome https://fortawesome.github.io/Font-Awesome/
 * Select2 Bootstrap styles https://fk.github.io/select2-bootstrap-css/
 =======
+=======
+## Laravel/Vue Self-Consuming API Starter App
+
+This is a simple starter app for a self-consuming API with subdomains built on the [Laravel 5.1](http://laravel.com/docs/5.1/releases#laravel-5.1.11) framework, incorporating [Vue.js](https://github.com/yyx990803/vue), [JWT Auth](https://github.com/tymondesigns/jwt-auth), [Dingo API](https://github.com/dingo/api), and [CORS](https://github.com/barryvdh/laravel-cors). It includes an example set up that has log in and registration with authentication middleware testing links on each subdomain (more details below).
+
+
+----------
+
+
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
 #### JWT Cross-(sub)Domain Implementation
 
 The JWT is passed across each subdomain using cookies. To keep the JWT secure, there is an additional custom claim added to it that checks against the current CSRF, which we store on the user. (See [this article](https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage/) for more information). To implement this, there are 3 custom middlewares in place to authorize and refresh the JWT properly (with the custom claim):
@@ -42,9 +53,13 @@ The JWT is passed across each subdomain using cookies. To keep the JWT secure, t
 
 #### The Example App
 
+<<<<<<< HEAD
 The example app uses 3 subdomains. 'api', 'mobile', and 'admin'. You can have as many subdomains as you want. This is
 purely for example purposes. The main domain, mobile subdomain, and admin subdomain each offer an example of a
 different way to interact with the API. Here, specifically, is how the example app works:
+=======
+The example app uses 3 subdomains. 'api', 'mobile', and 'admin'. You can have as many subdomains as you want. This is purely for example purposes. Here is how the example app works:
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
 
 ##### The API Subdomain
 
@@ -173,6 +188,7 @@ To:
     appDomain: '.app.test'
 
 *The above assumes our example settings ('app.test', 'api.app.test', etc.). Again, you will need to replace these with your actual settings.
+<<<<<<< HEAD
 >>>>>>> Updates to Read Me
 
 Follow the links above for more information on incorporating these packages in your own Laravel apps. No
@@ -210,3 +226,42 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+=======
+
+**If you are not using 'mobile' and 'admin' as Subdomains:**
+
+The example app is configured to use 'api', 'mobile', and 'admin' as subdomains. If your subdomain names are different, you will need to do a little more configuration if you want to test things out with the initial test set up. If you are already using 'mobile' and 'admin', or if you do not want to use the included test set up, you can safely ignore this section.
+
+First, we have a custom global view composer that makes the Dingo Dispatcher and various domain routes available to us from every view. You will need to update this file to match your custom subdomain names.
+
+Go to 'app\Http\ViewComposers\GlobalComposer' to update the `$mobile_route`, and `$admin_route` variables to match your custom set up.
+
+These variables are used in the following files:
+
+* 'resources/views/all/intro.blade.php'
+* 'resources/views/all/test-auth-one.blade.php'
+
+...so you will need to update them there as well.
+
+Finally, you will need to change the Route Groups in routes.php from '['domain' => 'admin']' and '['domain' => 'mobile']' to whatever your custom subdomain names actually are.
+
+
+----------
+
+#### Included Packages
+
+* Laravel 5.1.11 http://laravel.com/docs/5.1/releases#laravel-5.1.11
+* Vue 1.0.* https://github.com/yyx990803/vue
+* Vue Resource https://github.com/vuejs/vue-resource
+* Dingo API https://github.com/dingo/api
+* JWT Auth https://github.com/tymondesigns/jwt-auth
+* CORS https://github.com/barryvdh/laravel-cors
+* IDE Helper https://github.com/barryvdh/laravel-ide-helper
+* Doctrine/Dbal https://github.com/doctrine/dbal
+* jQuery 2.1.4 https://github.com/jquery/jquery
+* Bootstrap SASS 3.3.5 https://github.com/twbs/bootstrap-sass
+
+Follow the links above for more information on incorporating these packages in your own Laravel apps. Configuration files for jwt, cors, and dingo have been published to the config directory..
+
+**Please Note:** This is a personal project starter, which I have generated for my own use, and am making available to anyone who finds it useful to implement in any manner they deem appropriate. No direct affiliation to Laravel and/or any of the other packages included here is implied. All packages herein are licensed under the [MIT license](http://opensource.org/licenses/MIT).
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7

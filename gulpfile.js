@@ -2,12 +2,17 @@ var elixir = require('laravel-elixir');
 
 var paths = {
     'bower': './vendor/bower_components/',
+<<<<<<< HEAD
     'bs': './vendor/bower_components/bootstrap-sass/assets/'
+=======
+    'boot': './vendor/bower_components/bootstrap-sass/assets/'
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
 };
 
 elixir(function(mix) {
     mix.sass('app.scss')
 
+<<<<<<< HEAD
         .copy(paths.bs + 'fonts/bootstrap/**', 'public/fonts')
         .copy(paths.bower + 'font-awesome/fonts/**', 'public/fonts')
 
@@ -15,13 +20,24 @@ elixir(function(mix) {
             paths.bower + 'font-awesome/css/font-awesome.css',
             paths.bower + 'select2/dist/css/select2.css',
             paths.bower + 'select2-bootstrap-css/select2-bootstrap.css',
+=======
+        .copy(paths.boot + 'fonts/bootstrap/**', 'public/fonts')
+
+        .styles([
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
             './public/css/app.css'
         ])
 
         .scripts([
             paths.bower + 'jquery/dist/jquery.js',
+<<<<<<< HEAD
             paths.bower + 'select2/dist/js/select2.full.js',
             paths.bs + 'javascripts/bootstrap.js',
+=======
+            paths.boot + 'javascripts/bootstrap.js',
+            'vendor/**',
+            'custom/**'
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
         ])
 
         .browserify('vue/app.js', 'public/js/bundle.js')

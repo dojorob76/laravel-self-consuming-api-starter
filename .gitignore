@@ -5,8 +5,12 @@ Homestead.json
 .env
 .idea/
 _ide_helper.php
+<<<<<<< HEAD
 /storage/database.sqlite
 /public/build
 /public/css
 /public/js
 /public/fonts
+=======
+/storage
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7

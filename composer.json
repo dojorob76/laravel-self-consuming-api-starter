@@ -24,8 +24,12 @@
             "database"
         ],
         "psr-4": {
+<<<<<<< HEAD
             "App\\": "app/",
             "Api\\": "app/Api/"
+=======
+            "App\\": "app/"
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
         }
     },
     "autoload-dev": {
@@ -42,8 +46,11 @@
             "php artisan clear-compiled"
         ],
         "post-update-cmd": [
+<<<<<<< HEAD
             "php artisan clear-compiled",
             "php artisan ide-helper:generate",
+=======
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
             "php artisan optimize"
         ],
         "post-root-package-install": [

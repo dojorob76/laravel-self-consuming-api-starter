@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+        <h2 class="text-center">Register<br><small>(Mobile Subdomain)</small></h2>
+        <hr>
+        <form id="registration-form">
+            <!-- Name Form Input -->
+            <div class="form-group" id="register-name">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" class="form-control" v-model="registration.name">
+                <div class="error-list register-name-error-msg"><ul></ul></div>
+            </div>
+
+            <!-- Email Form Input -->
+            <div class="form-group" id="register-email">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" class="form-control" v-model="registration.email">
+                <div class="error-list register-email-error-msg"><ul></ul></div>
+            </div>
+
+            <!-- Password Form Input -->
+            <div class="form-group" id="register-password">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" class="form-control"
+                       v-model="registration.password">
+                <div class="error-list register-password-error-msg"><ul></ul></div>
+            </div>
+
+            <!-- Password Form Input -->
+            <div class="form-group" id="register-password_confirmation">
+                <label for="password_confirmation">Confirm Password:</label>
+                <input type="password" name="password_confirmation" id="password_confirmation"
+                       class="form-control" v-model="registration.password_confirmation">
+                <div class="error-list register-password_confirmation-error-msg"><ul></ul></div>
+            </div>
+
+            <!-- Registration Form Submit -->
+            <button type="submit" class="btn btn-primary" v-on:click="register">Register</button>
+        </form>
+    </div>
+</div>

@@ -13,8 +13,12 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'debug' => env('APP_DEBUG', false),
 
+=======
+    'debug'           => env('APP_DEBUG', false),
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
     /*
     |--------------------------------------------------------------------------
     | Application URL
@@ -26,8 +30,12 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'url' => 'http://localhost',
 
+=======
+    'url'             => 'http://localhost',
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -39,8 +47,12 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'timezone' => 'UTC',
 
+=======
+    'timezone'        => 'UTC',
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration
@@ -52,8 +64,12 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'locale' => 'en',
 
+=======
+    'locale'          => 'en',
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -66,7 +82,10 @@ return [
     */
 
     'fallback_locale' => 'en',
+<<<<<<< HEAD
 
+=======
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
     /*
     |--------------------------------------------------------------------------
     | Encryption Key
@@ -78,10 +97,15 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'key' => env('APP_KEY', 'SomeRandomString'),
 
     'cipher' => 'AES-256-CBC',
 
+=======
+    'key'             => env('APP_KEY', 'SomeRandomString'),
+    'cipher'          => 'AES-256-CBC',
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
     /*
     |--------------------------------------------------------------------------
     | Logging Configuration
@@ -95,8 +119,12 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'log' => 'single',
 
+=======
+    'log'             => 'single',
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -108,7 +136,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'providers' => [
+=======
+    'providers'       => [
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
 
         /*
          * Laravel Framework Service Providers...
@@ -145,6 +177,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+<<<<<<< HEAD
         App\Providers\ComposerServiceProvider::class,
         'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
         'Barryvdh\Cors\ServiceProvider',
@@ -152,6 +185,15 @@ return [
 
     ],
 
+=======
+        App\Providers\RepositoryServiceProvider::class,
+        App\Providers\ViewComposerServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+    ],
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
     /*
     |--------------------------------------------------------------------------
     | Class Aliases
@@ -163,6 +205,7 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'aliases' => [
 
         'App'       => Illuminate\Support\Facades\App::class,
@@ -203,6 +246,48 @@ return [
         'JWTFactory' => 'Tymon\JWTAuth\Facades\JWTFactory',
         'APIRoute'  => Dingo\Api\Facade\Route::class,
         'API'       => Dingo\Api\Facade\API::class,
+=======
+    'aliases'         => [
+        'App'        => Illuminate\Support\Facades\App::class,
+        'Artisan'    => Illuminate\Support\Facades\Artisan::class,
+        'Auth'       => Illuminate\Support\Facades\Auth::class,
+        'Blade'      => Illuminate\Support\Facades\Blade::class,
+        'Bus'        => Illuminate\Support\Facades\Bus::class,
+        'Cache'      => Illuminate\Support\Facades\Cache::class,
+        'Config'     => Illuminate\Support\Facades\Config::class,
+        'Cookie'     => Illuminate\Support\Facades\Cookie::class,
+        'Crypt'      => Illuminate\Support\Facades\Crypt::class,
+        'DB'         => Illuminate\Support\Facades\DB::class,
+        'Eloquent'   => Illuminate\Database\Eloquent\Model::class,
+        'Event'      => Illuminate\Support\Facades\Event::class,
+        'File'       => Illuminate\Support\Facades\File::class,
+        'Gate'       => Illuminate\Support\Facades\Gate::class,
+        'Hash'       => Illuminate\Support\Facades\Hash::class,
+        'Input'      => Illuminate\Support\Facades\Input::class,
+        'Inspiring'  => Illuminate\Foundation\Inspiring::class,
+        'Lang'       => Illuminate\Support\Facades\Lang::class,
+        'Log'        => Illuminate\Support\Facades\Log::class,
+        'Mail'       => Illuminate\Support\Facades\Mail::class,
+        'Password'   => Illuminate\Support\Facades\Password::class,
+        'Queue'      => Illuminate\Support\Facades\Queue::class,
+        'Redirect'   => Illuminate\Support\Facades\Redirect::class,
+        'Redis'      => Illuminate\Support\Facades\Redis::class,
+        'Request'    => Illuminate\Support\Facades\Request::class,
+        'Response'   => Illuminate\Support\Facades\Response::class,
+        'Route'      => Illuminate\Support\Facades\Route::class,
+        'Schema'     => Illuminate\Support\Facades\Schema::class,
+        'Session'    => Illuminate\Support\Facades\Session::class,
+        'Storage'    => Illuminate\Support\Facades\Storage::class,
+        'URL'        => Illuminate\Support\Facades\URL::class,
+        'Validator'  => Illuminate\Support\Facades\Validator::class,
+        'View'       => Illuminate\Support\Facades\View::class,
+
+        'JWTAuth'    => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'APIRoute'   => Dingo\Api\Facade\Route::class,
+        'API'        => Dingo\Api\Facade\API::class,
+
+>>>>>>> d777b7f4a0795542a2f44a6d65c5eb838af4c5f7
     ],
 
 ];
