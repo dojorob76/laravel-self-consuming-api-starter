@@ -1,0 +1,27 @@
+# TODO
+- [ ] Update to latest Laravel Version (currently 13.x)
+- [ ] Update to latest PHP Version (currently 8.5.x)
+- [ ] Update to latest Vue Version (currently 3.5.x)
+- [ ] Update to latest versions of each of the supporting packages, or remove/replace
+    - [ ] [Vue Resource](https://github.com/vuejs/vue-resource) = REMOVE. No longer necessary or maintained.
+    - [ ] [Dingo API](https://github.com/api-ecosystem-for-laravel/dingo-api) = incorporate current repo. [Old one](https://github.com/dingo/api) has been moved.
+    - [ ] [JWT Auth](https://github.com/tymondesigns/jwt-auth) = Update to latest 2.x version (currently using 0.5.x)
+    - [ ] [CORS](https://github.com/barryvdh/laravel-cors) = REMOVE. Has been part of Laravel core since Laravel v9
+    - [ ] [Laravel IDE Helper](https://github.com/barryvdh/laravel-ide-helper) = Update to latest 3.x version (currently using 0.7.2)
+    - [ ] [Doctrine/DBal](https://github.com/doctrine/dbal) = Update to latest 4.5.x version (currently using 2.5)
+    - [ ] [jQuery](https://github.com/jquery/jquery) (currently v 2.1.4) = REMOVE. Determine whether to replace with [htmx](https://htmx.org/) or rely entirely on Vue + plain vanilla JS
+    - [ ] [Boostrap SASS](https://github.com/twbs/bootstrap-sass) (currently v 3.3.5) = REMOVE. Replace with [Tailwind](https://tailwindcss.com/)
+- [ ] ALL refactors will be implemented with TDD using [Playwright](https://playwright.dev/) and [PEST](https://pestphp.com/) 
+- [ ] Refactor PHP/Laravel code logic to work within Laravel 13.x framework and incorporate proper PHP 8.5 syntax
+- [ ] Refactor Vue and Vue Resource code logic to work within Vue 3.5.x framework
+- [ ] Refactor front end styling to use Tailwind
+- [ ] Refactor jQuery logic to use Vue, Tailwind, plain vanilla JS
+- [ ] Refactor all supporting package logic to use new versions
+    - [ ] Dingo API
+    - [ ] JWT Auth
+    - [ ] CORS (part of Laravel core on v13)
+- [ ] Remove Homestead
+- [ ] Incorporate DOCKER with DOCKER file as available option
+- [ ] Incorporate [Laravel Boost](https://laravel.com/ai/boost) as optional add on
+- [ ] Generate secondary version that makes use of [Tenancy for Laravel](https://tenancyforlaravel.com/) for multi-tenancy apps
+- [ ] Update README
